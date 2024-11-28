@@ -12,5 +12,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
   output: 'server',
-  adapter: vercel()
+  adapter: vercel({})
 });
