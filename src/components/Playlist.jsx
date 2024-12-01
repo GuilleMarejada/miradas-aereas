@@ -37,7 +37,7 @@ const Playlist = () => {
   }
 
   return (
-    <section className="max-w-7xl mx-auto p-6">
+    <section className="max-w-[1920px] mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-8">
         Lista de Reproducción
       </h1>
