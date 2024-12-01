@@ -51,8 +51,9 @@ const Playlist = () => {
             key={video.videoId}
             className="bg-white shadow-md rounded-lg p-4 hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out border border-gray-200"
           >
-            <div className="aspect-w-16 aspect-h-9">
+            <div className="aspect-video">
               <iframe
+                loading="eager"
                 src={`https://www.youtube.com/embed/${video.videoId}`}
                 title={`Reproductor del video: ${video.title}`}
                 className="w-full h-full"
