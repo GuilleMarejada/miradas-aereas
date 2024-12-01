@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-    const API_KEY = import.meta.env.YOUTUBE_API_KEY; // Obtén la clave de entorno privada
+    const API_KEY = import.meta.env.YOUTUBE_API_KEY;
     const PLAYLIST_ID = "PL185NqasFGxEy2tkQSvwCd54uyuoOHOy9";
     const API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=50&key=${API_KEY}`;
 
