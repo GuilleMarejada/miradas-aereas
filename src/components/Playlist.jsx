@@ -11,8 +11,8 @@ const Playlist = () => {
         const response = await fetch("/api/playlist");
         const data = await response.json();
 
-        if (data.error) {
-          setError(data.error);
+        if (data.error || !Array.isArray(data)) {
+          setError("Error en la respuesta de la API.");
           setLoading(false);
           return;
         }
@@ -29,7 +29,11 @@ const Playlist = () => {
   }, []);
 
   if (loading) {
-    return <p className="text-center text-blue-500">Cargando videos...</p>;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -41,21 +45,23 @@ const Playlist = () => {
       <h1 className="text-3xl font-bold text-center mb-8">
         Lista de Reproducción
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {videos.map((video) => (
           <div
             key={video.videoId}
-            className="bg-white shadow-lg rounded-lg p-4 hover:scale-105 hover:shadow-2xl transition-transform duration-300 ease-in-out border-2 border-gray-300"
+            className="bg-white shadow-md rounded-lg p-4 hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out border border-gray-200"
           >
-            <iframe
-              src={`https://www.youtube.com/embed/${video.videoId}`}
-              title={video.title}
-              className="w-full h-48 md:h-56"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <h2 className="mt-4 text-lg font-semibold text-center">
-              {video.title}
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={`https://www.youtube.com/embed/${video.videoId}`}
+                title={`Reproductor del video: ${video.title}`}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <h2 className="mt-4 text-lg font-medium text-center text-gray-700">
+              {video.title || "Video sin título"}
             </h2>
           </div>
         ))}
