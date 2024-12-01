@@ -9,14 +9,26 @@ import LogoYoutube from "../assets/LogoYotube.webp";
   class="flex justify-between bg-[#bebebe] shadow-sm rounded-b-xl p-4 place-items-center"
 >
   <div class="">
-    <Image src={Logo} alt={"Logo"} width={100} height={100} />
+    <Image src={Logo} alt={"Logo"} width={100} height={100} loading="eager" />
   </div>
   <div class="flex gap-4 h-full place-items-center">
     <a href="https://www.instagram.com/miradasaereasfilms/">
-      <Image src={LogoInsta} alt={"Logo"} width={30} height={30} />
+      <Image
+        src={LogoInsta}
+        alt={"Logo"}
+        width={30}
+        height={30}
+        loading="eager"
+      />
     </a>
     <a href="https://www.youtube.com/@Carloscv46"
-      ><Image src={LogoYoutube} alt={"Logo"} width={50} height={30} /></a
+      ><Image
+        src={LogoYoutube}
+        alt={"Logo"}
+        width={50}
+        height={30}
+        loading="eager"
+      /></a
     >
   </div>
 </nav>

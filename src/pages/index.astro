@@ -2,13 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Banner from "../components/Banner.astro";
-import Video from "../components/Video.astro";
 import Playlist from "../components/Playlist.jsx";
 ---
 
 <Layout>
   <Navbar />
   <Banner />
-  <!-- <Video /> -->
   <Playlist client:load />
 </Layout>
